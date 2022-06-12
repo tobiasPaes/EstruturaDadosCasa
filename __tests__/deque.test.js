@@ -1,27 +1,32 @@
-import fila from "../src/dequeL2Q5";
+import deque from "../src/questoes/deque";
 
-let f;
-test("teste remover do comeco", ()=>{
-    f = new fila(8);
-    f.inserirComeco(10);
-    f.inserirComeco(9);
-    f.inserirComeco(8);
-    f.inserirComeco(7);
-    f.inserirComeco(6);
-    f.inserirComeco(5);
-    f.inserirFinal(2);
-    expect(f.removerComeco()).toBe(2)
+let d
+
+beforeEach(()=>{
+    d = new deque(5)
 })
 
-test("teste remover do final", ()=>{
-    f = new fila(8);
-    f.inserirComeco(10);
-    f.inserirComeco(9);
-    f.inserirComeco(8);
-    f.inserirComeco(7);
-    f.inserirComeco(6);
-    f.inserirComeco(5);
-    f.inserirFinal(2);
-    expect(f.removerFinal()).toBe(5)
-    expect(f.removerFinal()).toBe(6)
+test("iniciacao", ()=>{
+    expect(d.size()).toBe(0)
+})
+
+test("insercao e remocao do inicio", ()=>{
+    d.inserirInicio(10)
+    d.inserirInicio(15)
+    expect(d.removerInicio()).toBe(15)
+})
+
+test("insercao e remocao do fim", ()=>{
+    d.inserirFim(10)
+    d.inserirFim(15)
+    expect(d.removerFim()).toBe(15)
+})
+
+test("conversao para string", ()=>{
+    d.inserirInicio('A')
+    d.inserirInicio('B')
+    d.inserirInicio('C')
+    d.inserirInicio('D')
+    d.inserirFim('E')
+    expect(d.toString()).toStrictEqual("[D, C, B, A, E]")
 })
