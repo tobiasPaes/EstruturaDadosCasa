@@ -120,6 +120,27 @@ class Lista{
         } 
     }
 
+    removeAt(dado,pos){ // fazer dps
+        if (pos > this.size()) {
+            this.removeLast();
+        }else{
+            if (pos <= 0) {
+                this.removeFirst();
+            }else{
+                let i = 0;
+                let aux1 = this.head;
+                let aux2 = this.head.proximo;
+
+                while (i != pos) {
+                    aux1 = aux2;
+                    aux2 = aux2.proximo;
+                    i++;
+                }
+                aux1.proximo = aux2.proximo
+            }
+        }
+    }
+
     search(dado){
         if(this.isEmpty()){
             return false;
@@ -165,11 +186,6 @@ class Lista{
     clear(){
         this.head = new Node(null);
     }
-
-    removeAt(dado,pos){ // fazer dps
-        
-    }
-
 }
 
 export default Lista;
