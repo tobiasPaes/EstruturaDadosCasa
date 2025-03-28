@@ -29,7 +29,7 @@ class FilaPrioridade {
 		let pos_pai = Math.trunc(pos_filho / 2);
 
 		while (this.tree[pos_filho].priority > this.tree[pos_pai].priority) {
-			aux = this.tree[pos_pai];
+			aux = this.tree[pos_filho];
 			this.tree[pos_filho] = this.tree[pos_pai];
 			this.tree[pos_pai] = aux;
 		}
